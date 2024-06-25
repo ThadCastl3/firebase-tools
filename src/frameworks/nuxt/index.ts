@@ -55,11 +55,11 @@ export async function build(cwd: string) {
   const rewrites = wantsBackend
     ? []
     : [
-        {
-          source: posix.join(baseUrl, "**"),
-          destination: posix.join(baseUrl, "200.html"),
-        },
-      ];
+      {
+        source: posix.join(baseUrl, "**"),
+        destination: posix.join(baseUrl, "200.html"),
+      },
+    ];
   return { wantsBackend, rewrites, baseUrl };
 }
 
@@ -108,7 +108,7 @@ export async function getDevModeHandle(cwd: string) {
 
 export async function getConfig(dir: string): Promise<NuxtOptions> {
   const { loadNuxtConfig } = await relativeRequire(dir, "@nuxt/kit");
-  return await loadNuxtConfig(dir);
+  return await loadNuxtConfig({});
 }
 
 /**
